@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  nodejs-app:
+    build:
+      context: ./jenkins-nodejs
+    container_name: nodejs-server
+    hostname: nodejs-server
+    ports:
+      - "3000:3000"
+    networks:
+      - jenkins-net
+  nginx:
+    build:
+      context: ./jenkins-nginx
+    container_name: nginx
+    hostname: nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - nodejs-app
+    networks:
+      - jenkins-net
+
+networks:
+  jenkin-net:
+    external: true

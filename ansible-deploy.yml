@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+     # create the network for nginx vs nodejs
+    - name: create docker network
+      command: docker network create jenkin-net
+      ignore_errors: false
+    - name: run docker compose
+      command: docker-compose run up
+      ignore_errors: false
