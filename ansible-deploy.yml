@@ -5,5 +5,5 @@
       command: docker network create jenkin-net
       ignore_errors: false
     - name: run docker compose
-      command: docker-compose run up
+      command: docker compose run up
       ignore_errors: false
