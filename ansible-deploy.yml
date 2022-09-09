@@ -1,13 +1,11 @@
 - hosts: all
   tasks:
     - name: Copy all
-      copy:
-        src: *
-        dest: .
+      command: cp -r /home/ubuntu/workplace/node_nginx /home/ubuntu
     - name: remove network first
       command: docker network rm jenkin-net
       ignore_errors: true
-     # create the network for nginx vs nodejs
+      # create the network for nginx vs nodejs
     - name: create docker network
       command: docker network create jenkin-net
       ignore_errors: false
