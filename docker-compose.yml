@@ -3,7 +3,7 @@ version: "3.9"
 services:
   nodejs-app:
     build:
-      context: ./workplace/node_nginx/jenkins-nodejs
+      context: ./jenkins-nodejs
     container_name: nodejs-server
     hostname: nodejs-server
     ports:
@@ -12,7 +12,7 @@ services:
       - jenkins-net
   nginx:
     build:
-      context: ./workplace/node_nginx/jenkins-nginx
+      context: ./jenkins-nginx
     container_name: nginx
     hostname: nginx
     ports:

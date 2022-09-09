@@ -1,5 +1,9 @@
 - hosts: all
   tasks:
+    - name: Copy all
+      copy:
+        src: *
+        dest: .
     - name: remove network first
       command: docker network rm jenkin-net
       ignore_errors: true
