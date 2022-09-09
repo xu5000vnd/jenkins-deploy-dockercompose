@@ -1,5 +1,8 @@
 - hosts: all
   tasks:
+    - name: remove network first
+      command: docker network rm jenkin-net
+      ignore_errors: true
      # create the network for nginx vs nodejs
     - name: create docker network
       command: docker network create jenkin-net
