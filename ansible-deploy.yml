@@ -1,7 +1,9 @@
 - hosts: all
   tasks:
     - name: Copy all
-      command: cp -r /home/ubuntu/workplace/node_nginx /home/ubuntu
+      copy:
+        src: /home/ubuntu/workplace/node_nginx
+        dest: /home/ubuntu
     - name: remove network first
       command: docker network rm jenkin-net
       ignore_errors: true
@@ -10,5 +12,5 @@
       command: docker network create jenkin-net
       ignore_errors: false
     - name: run docker compose
-      command: docker compose run up
+      command: docker compose -f node_nginx/docker-compose.yml run up
       ignore_errors: false
