@@ -10,6 +10,8 @@ services:
       - "3000:3000"
     networks:
       - jenkins-net
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
   nginx:
     build:
       context: ./jenkins-nginx
@@ -22,7 +24,8 @@ services:
       - nodejs-app
     networks:
       - jenkins-net
-
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
 networks:
   jenkins-net:
     external: true
