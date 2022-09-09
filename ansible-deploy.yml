@@ -12,5 +12,5 @@
       command: docker network create jenkins-net
       ignore_errors: false
     - name: run docker compose
-      command: docker compose -f node_nginx/docker-compose.yml run
+      command: docker compose -f node_nginx/docker-compose.yml up --detach
       ignore_errors: false
