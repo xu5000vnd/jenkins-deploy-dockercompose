@@ -5,11 +5,11 @@
         src: /home/ubuntu/workplace/node_nginx
         dest: /home/ubuntu
     - name: remove network first
-      command: docker network rm jenkin-net
+      command: docker network rm jenkins-net
       ignore_errors: true
       # create the network for nginx vs nodejs
     - name: create docker network
-      command: docker network create jenkin-net
+      command: docker network create jenkins-net
       ignore_errors: false
     - name: run docker compose
       command: docker compose -f node_nginx/docker-compose.yml run up
