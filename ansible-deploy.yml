@@ -23,5 +23,5 @@
       command: docker compose -f node_nginx/docker-compose.yml rm -f
       ignore_errors: false
     - name: run docker compose
-      command: docker compose -f node_nginx/docker-compose.yml up --detach
+      command: docker compose -f node_nginx/docker-compose.yml up --detach --build
       ignore_errors: false
