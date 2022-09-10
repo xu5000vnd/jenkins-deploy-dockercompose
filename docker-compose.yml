@@ -26,6 +26,7 @@ services:
       - jenkins-net
     stdin_open: true # docker run -i
     tty: true # docker run -t
+    restart: always
 networks:
   jenkins-net:
     external: true
